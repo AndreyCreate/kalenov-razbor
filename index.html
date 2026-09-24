@@ -1,0 +1,350 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Разбор запросов Дмитрия Каленова · 24.09.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111;--ink2:#3A3A3A;--mut:#6B6B6B;--line:#E6E6E6;--blue:#BFDDFB;--bls:#DCEBFC;--bl:#2F80ED;--coral:#E8563F;--grey:#F5F5F5;--dark:#2B2B2B}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+section{padding:92px 0;border-top:1px solid var(--line)}
+section.grey{background:var(--grey)}
+section.dark{background:var(--dark);color:#fff;border-top:0}
+.lab{display:inline-flex;gap:10px;align-items:center;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--mut);margin-bottom:20px;letter-spacing:.02em}
+.lab:before{content:"✳";color:var(--coral)}
+.dark .lab{color:#b9b9b9}
+h1{font-weight:500;font-size:clamp(31px,7.4vw,104px);letter-spacing:-.045em;line-height:.96;overflow-wrap:anywhere}
+h2{font-weight:500;font-size:clamp(30px,4.2vw,54px);letter-spacing:-.04em;line-height:1.04;margin-bottom:14px}
+h3{font-weight:500;font-size:21px;letter-spacing:-.02em;line-height:1.2}
+u,.u{text-decoration:none;box-shadow:inset 0 -.09em 0 var(--bl)}
+.dark u,.dark .u{box-shadow:inset 0 -.09em 0 #8cc4ff}
+.lead{font-size:19px;line-height:1.5;color:var(--ink2);max-width:760px;margin-top:16px}
+.lead:before{content:":: ";font-family:'JetBrains Mono',monospace;color:var(--bl)}
+.dark .lead{color:#ddd}
+.sub{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--mut);letter-spacing:.02em}
+
+/* hero */
+.hero{padding:34px 0 76px;border-top:0}
+.htop{display:flex;align-items:center;gap:12px;padding:8px 0 44px;flex-wrap:wrap}
+.htop img{width:40px;height:40px;border-radius:50%}
+.htop .t{font-family:'JetBrains Mono',monospace;font-size:12.5px;background:var(--grey);border-radius:8px;padding:8px 12px;line-height:1.35}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:54px}
+.nums>div{padding:22px 20px 22px 0;border-bottom:1px solid var(--line)}
+.nums>div+div{border-left:1px solid var(--line);padding-left:20px}
+.nums b{display:block;font-size:clamp(26px,3.1vw,44px);font-weight:500;letter-spacing:-.045em;line-height:1;white-space:nowrap}
+.nums span{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mut);display:block;margin-top:10px;line-height:1.45;white-space:normal}
+.nums em{font-style:normal;color:var(--bl)}
+.trio{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;font-size:clamp(20px,2.3vw,30px);font-weight:500;letter-spacing:-.04em}
+.trio i{font-style:normal;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--mut)}
+.trio .dn{color:var(--coral)}
+
+/* phones */
+.phones{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:40px;align-items:start}
+.ph{border:1px solid var(--line);border-radius:26px;padding:12px;background:#fff}
+.ph .cap{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mut);padding:6px 10px 12px;display:flex;justify-content:space-between;gap:10px}
+.ph .cap b{font-weight:500;color:var(--ink)}
+.ph .scr{border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+.mock{padding:18px 16px 22px;font-size:14px}
+.mock .row{display:flex;gap:16px;align-items:center}
+.mock .row img{width:66px;height:66px;border-radius:50%;border:2px solid var(--line)}
+.mock .st{display:flex;gap:16px;font-size:13px;min-width:0}
+.mock .st b{display:block;font-weight:600;font-size:15px}
+.mock .st span{color:var(--mut);font-size:11.5px;white-space:nowrap}
+@media(max-width:520px){.mock .st{gap:11px}.mock .st span{font-size:10.5px}.mock .st b{font-size:14px}}
+.mock .nm{font-weight:600;margin:16px 0 2px;line-height:1.3}
+.mock .cat{color:var(--mut);font-size:13px;margin-bottom:10px}
+.mock .bio div{line-height:1.45}
+.mock .lnk{margin-top:12px;font-weight:600;color:#00376b;font-size:13.5px}
+.mock .btns{display:flex;gap:8px;margin-top:14px}
+.mock .btns span{flex:1;background:var(--grey);border-radius:8px;text-align:center;padding:8px;font-size:12.5px;font-weight:600}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.tabs button{font-family:'JetBrains Mono',monospace;font-size:12.5px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 16px;cursor:pointer;color:var(--ink)}
+.tabs button[aria-selected="true"]{background:var(--blue);border-color:var(--blue)}
+.tabs .rec:after{content:" ✓";color:var(--bl)}
+.cnt{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mut);margin-top:12px;display:flex;gap:16px;flex-wrap:wrap}
+.cnt b{font-weight:500;color:var(--ink)}
+.vnote{background:var(--bls);border-radius:12px;padding:14px 16px;font-size:14.5px;line-height:1.5;margin-top:12px;color:var(--ink2)}
+.cut{color:var(--mut)}
+
+/* lists */
+.rows{border-top:1px solid var(--line)}
+.rw{display:grid;grid-template-columns:34px 1fr;gap:14px;padding:15px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.5;align-items:start}
+.rw b{font-family:'JetBrains Mono',monospace;font-weight:400;color:var(--mut);font-size:13px;padding-top:3px}
+.rw.ok b{color:var(--bl)}
+.rw.bad b{color:var(--coral)}
+.dark .rows,.dark .rw{border-color:#444}.dark .rw b{color:#aaa}
+
+/* highlight cards */
+.hl{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
+.hc{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;cursor:zoom-in;display:flex;flex-direction:column;text-align:left;font:inherit;color:inherit;padding:0}
+.hc .im{height:132px;overflow:hidden;background:var(--grey);border-bottom:1px solid var(--line)}
+.hc .im img{width:100%;height:100%;object-fit:cover;object-position:top}
+.hc .bd{padding:16px 16px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.hc .mt{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--mut);line-height:1.5}
+.hc p{font-size:14.5px;line-height:1.45;color:var(--ink2);margin-top:auto}
+.tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11.5px;border-radius:999px;padding:5px 12px;align-self:flex-start}
+.t-keep{background:var(--blue)}.t-re{background:var(--bls)}.t-hide{background:var(--grey);color:var(--mut)}.t-kill{background:var(--coral);color:#fff}
+#lb{position:fixed;inset:0;background:rgba(17,17,17,.94);display:none;z-index:50;overflow:auto;padding:70px 20px 40px}
+#lb.on{display:block}
+#lb img{margin:0 auto;max-width:1000px;width:100%}
+#lb .x{position:fixed;top:18px;right:22px;background:#fff;border:0;border-radius:999px;width:44px;height:44px;font-size:18px;cursor:pointer;font-family:'JetBrains Mono',monospace}
+#lb .ti{color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;max-width:1000px;margin:0 auto 14px}
+
+/* route */
+.route{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:30px}
+.rn{text-align:center}
+.rn i{display:grid;place-items:center;width:78px;height:78px;border-radius:50%;margin:0 auto 12px;background:var(--blue);font-family:'JetBrains Mono',monospace;font-size:14px;font-style:normal;font-weight:500}
+.rn.g i{background:var(--grey)}
+.rn span{font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.4;display:block}
+details{border-bottom:1px solid var(--line);padding:16px 0}
+details summary{cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:13px;list-style:none;display:flex;justify-content:space-between;gap:14px}
+details summary::-webkit-details-marker{display:none}
+details summary:after{content:"+";color:var(--bl)}
+details[open] summary:after{content:"–"}
+details .in{font-size:15.5px;line-height:1.55;margin-top:14px;color:var(--ink2);max-width:860px}
+details .in ol{margin:0;padding-left:20px}
+details .in li{margin:6px 0}
+
+/* feed */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:34px}
+.box{border:1px solid var(--line);border-radius:20px;padding:26px 26px 30px;background:#fff}
+.box.blue{background:var(--blue);border-color:var(--blue)}
+.box h3{margin-bottom:14px}
+.tbl{width:100%;border-collapse:collapse;font-size:15px;margin-top:8px}
+.tbl th{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--mut);font-weight:400;text-align:right;padding:8px 0;border-bottom:1px solid var(--line)}
+.tbl th:first-child{text-align:left}
+.tbl td{padding:10px 0;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+.tbl td:first-child{text-align:left;white-space:normal;padding-right:12px}
+.box.blue .tbl th,.box.blue .tbl td{border-color:rgba(17,17,17,.14)}
+.box.blue .tbl th{color:#1f4f8a}
+.chart{margin-top:30px}
+.bar{display:grid;grid-template-columns:230px 1fr 100px;gap:16px;align-items:center;padding:10px 0;font-size:15px}
+.bar .t{font-size:14.5px;line-height:1.35}
+.bar .t i{font-style:normal;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--mut);display:block}
+.bar .g{height:26px;background:var(--grey);border-radius:4px;overflow:hidden}
+.bar .g span{display:block;height:100%;background:var(--blue);border-radius:4px}
+.bar.top .g span{background:var(--bl)}
+.bar .v{font-family:'JetBrains Mono',monospace;font-size:13px;text-align:right}
+.brk{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}
+.bk{position:relative;background:#2b2b2b;color:#fff;padding:24px 24px 28px;min-height:190px}
+.bk span.c{position:absolute;width:12px;height:12px;border:2px solid #fff}
+.c1{left:0;top:0;border-right:0;border-bottom:0}.c2{right:0;top:0;border-left:0;border-bottom:0}
+.c3{left:0;bottom:0;border-right:0;border-top:0}.c4{right:0;bottom:0;border-left:0;border-top:0}
+.bk .n{font-family:'JetBrains Mono',monospace;font-size:12px;color:#8cc4ff;margin-bottom:12px}
+.bk h3{margin-bottom:10px}
+.bk p{font-size:14.5px;line-height:1.5;color:#e4e4e4}
+
+/* funnel */
+.fn{display:flex;gap:8px;margin-top:34px;align-items:stretch;overflow-x:auto;padding-bottom:6px}
+.fs{flex:1 1 0;min-width:112px;border:1px solid var(--line);border-radius:16px;padding:16px 14px 18px;background:#fff;display:flex;flex-direction:column;gap:8px}
+.fs.hot{background:var(--blue);border-color:var(--blue)}
+.fs.end{background:var(--grey)}
+.fs b{font-size:clamp(18px,1.9vw,26px);font-weight:500;letter-spacing:-.04em;line-height:1}
+.fs .k{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--mut);line-height:1.4}
+.fs.hot .k{color:#1f4f8a}
+.fs p{font-size:13px;line-height:1.4;color:var(--ink2);margin-top:auto}
+.drop{display:flex;align-items:center;justify-content:center;flex:0 0 92px;min-width:92px;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--coral);text-align:center;line-height:1.45;border-left:1px dashed var(--coral);border-right:1px dashed var(--coral);padding:0 5px}
+.arr{flex:0 0 22px;min-width:22px;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;color:var(--mut)}
+.mini{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+.mini div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.5}
+.mini b{display:block;font-family:Inter,sans-serif;font-size:22px;font-weight:500;letter-spacing:-.03em;margin-bottom:8px}
+
+/* plan */
+.plan{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:34px}
+.ck{list-style:none}
+.ck li{position:relative;padding:13px 0 13px 30px;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.5}
+.ck li:before{content:"☐";position:absolute;left:0;top:13px;font-family:'JetBrains Mono',monospace;color:var(--bl);font-size:15px}
+.dark .ck li{border-color:#444}.dark .ck li:before{color:#8cc4ff}
+.keep{background:var(--blue);border-radius:20px;padding:30px;margin-top:40px}
+.keep h3{margin-bottom:10px}
+.keep p{font-size:16px;line-height:1.55;color:var(--ink2);max-width:860px}
+footer{background:var(--grey);padding:60px 0 70px;font-size:15px}
+footer .fin{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mut);margin-top:34px;line-height:1.7}
+
+@media(max-width:980px){
+.wrap{padding:0 20px}section{padding:60px 0}
+.nums{grid-template-columns:1fr 1fr}.nums>div:nth-child(odd){border-left:0;padding-left:0}
+.nums>div{padding-right:14px}.nums>div:nth-child(even){padding-left:16px}
+.phones{grid-template-columns:1fr;gap:26px}
+.hl{grid-template-columns:1fr 1fr}
+.route{grid-template-columns:1fr 1fr 1fr}
+.two,.plan{grid-template-columns:1fr;gap:26px}
+.brk{grid-template-columns:1fr}
+.bar{grid-template-columns:1fr;gap:6px}.bar .v{text-align:left}
+.mini{grid-template-columns:1fr 1fr}
+.fn{gap:6px}.fs{min-width:172px}.drop{min-width:104px;flex-basis:104px}
+}
+@media(max-width:520px){.hl{grid-template-columns:1fr}.route{grid-template-columns:1fr 1fr}.mini{grid-template-columns:1fr}}
+</style><body>
+
+<header class="wrap hero">
+<div class="htop"><!--AVATAR--><span class="t">Дмитрий Каленов<br>разбор запросов · 24.09</span></div>
+<h1>Как вынырнуть из <u>серой массы</u></h1>
+<p class="lead">Страница собрана под вопросы, с которыми Дмитрий пришёл 15 сентября: два голосовых и переписка, расшифрованы целиком. К ним добавлены аккаунт в Instagram и воронка, пройденная по ссылке из шапки. Всё, что здесь написано, взято оттуда. Если данных нет, так и сказано.</p>
+
+<div class="nums">
+<div><b>~30 000 ₽</b><span>в месяц — потолок дохода из Instagram, «сейчас намного меньше»</span></div>
+<div><b>700–900 ₽</b><span>программы тренировок, вход в воронку</span></div>
+<div><b>0</b><span>конверсия из закрытого чата в «Старт» и наставничество</span></div>
+<div><b>0</b><span>разговоров с покупателями и непокупателями: «не общался с ними»</span></div>
+</div>
+
+<!--IGNUMS-->
+
+<p class="sub" style="margin-top:48px">пять вопросов из голосовых, в формулировках Дмитрия</p>
+<div class="qnav">
+<a href="#q1"><div class="n">Вопрос 01</div><b>«Выныкнуть» из серой массы</b><span>«устал от шаблонных фраз: похудеем вас, онлайн и оффлайн, и на трубе дудец»</span></a>
+<a href="#q2"><div class="n">Вопрос 02</div><b>Аудитория на резинке</b><span>«набрал, но много не русскоязычных, монетизировать не смогу, мне не интересно»</span></a>
+<a href="#q3"><div class="n">Вопрос 03</div><b>Воронка с нулём на выходе</b><span>«из чата конверсия ноль, в Старт заявок тоже ноль»</span></a>
+<a href="#q4"><div class="n">Вопрос 04</div><b>Консультации и сарафан</b><span>«лучше всего работали консультации, но сейчас все их продают»</span></a>
+<a href="#q5"><div class="n">Вопрос 05</div><b>Обратная связь</b><span>«не общался с ними, как будто не вижу там пользы»</span></a>
+</div>
+</header>
+
+
+<!-- 01 -->
+<section id="q1"><div class="wrap">
+<div class="lab">Вопрос 01 · «как ты видишь процесс выныривания из серой массы, как у всех»</div>
+<h2>Из серой массы выводят <u>не слова, а конкретика</u></h2>
+<p class="lead">Фразы «похудеем вас» звучат одинаково у всех, потому что за ними нет ни человека, ни ситуации, ни способа. Когда блогер меняет одну шаблонную фразу на другую, серая масса никуда не девается. Она уходит, когда в тексте появляются три вещи, которых нет у соседа.</p>
+
+<div class="brk" style="margin-top:34px">
+<div class="bk"><span class="c c1"></span><span class="c c2"></span><span class="c c3"></span><span class="c c4"></span>
+<div class="n">▢ 1 · кто именно</div><h3>Один человек вместо «всех, кто хочет похудеть»</h3>
+<p>Возраст, работа, что уже пробовал, почему бросил. Такого человека нельзя назвать заранее, его можно только найти в разговорах с клиентами (об этом вопрос 05). Сарафан приводит людей до сих пор, значит, этот человек уже есть среди клиентов наставничества.</p></div>
+
+<div class="bk"><span class="c c1"></span><span class="c c2"></span><span class="c c3"></span><span class="c c4"></span>
+<div class="n">▢ 2 · способ</div><h3>Свой метод с названием</h3>
+<p>У Дмитрия он уже есть: «Старт» строит питание через принцип тарелки. Это инструмент, который можно показать на реальной тарелке, а не пообещать. Шаблон звучит «похудеем». Конкретика звучит так: «вот тарелка, вот как её собрать за две минуты».</p></div>
+
+<div class="bk"><span class="c c1"></span><span class="c c2"></span><span class="c c3"></span><span class="c c4"></span>
+<div class="n">▢ 3 · сам автор</div><h3>Живой человек, а не тренер из ленты</h3>
+<p>Дмитрий сам выступает: 24.09, в день консультации, у него соревнования. Подготовка, питание перед стартом, что не получилось, — такого у соседа по ленте нет по определению, потому что это его собственная жизнь.</p></div>
+</div>
+
+<!--IGQ1-->
+</div></section>
+
+
+<!-- 02 -->
+<section id="q2" class="grey"><div class="wrap">
+<div class="lab">Вопрос 02 · «монетизировать эту историю я не смогу, у меня основной продукт — наставничество»</div>
+<h2>Резинка собрала <u>зрителей, а не покупателей</u></h2>
+<p class="lead">Ролик без слов с упражнением понятен и в Киргизии, и в Бразилии. Именно поэтому он и собрал интернациональную аудиторию. Но такой ролик ничего не говорит о Дмитрии: ни кто он, ни что продаёт, ни почему к нему стоит идти за питанием. Зритель получил упражнение, а купить у автора ему нечего.</p>
+
+<div class="rows" style="max-width:900px;margin-top:30px">
+<div class="rw"><b>→</b><span><b>Не удалять и не стыдиться.</b> Аудитория — это охват. Он пригодится, если в каждом ролике появится хотя бы одна фраза голосом: кто показывает упражнение и для кого.</span></div>
+<div class="rw"><b>→</b><span><b>Посмотреть в статистике долю русскоязычных.</b> Instagram показывает топ стран и городов. От этой цифры зависит, сколько людей из аудитории вообще могут купить наставничество на русском. Этой цифры на странице нет: у меня нет доступа к статистике аккаунта.</span></div>
+<div class="rw"><b>→</b><span><b>Сменить жанр, а не тему.</b> Упражнение остаётся, но в кадре появляется голос и ситуация: «делаю это в отеле, когда нет зала» или «вот зачем это клиенту после 40». Ролик без слов принадлежит всем, ролик с голосом — только автору.</span></div>
+</div>
+<!--IGQ2-->
+</div></section>
+
+
+<!-- 03 -->
+<section id="q3"><div class="wrap">
+<div class="lab">Вопрос 03 · «в закрытом чате предлагаю подключить питание, зайти в проект или в личную работу. Но оттуда конверсия ноль»</div>
+<h2>Лестница ломается <u>на второй ступеньке</u></h2>
+<p class="lead">Воронка, как её описал Дмитрий:</p>
+
+<table class="tbl" style="margin-top:20px">
+<tr><th>ступень</th><th>что там</th><th>что известно</th></tr>
+<tr><td>1. Контент</td><td>упражнения с резиной, прогревы в сторис и постах</td><td>аудитория набрана, во многом не русскоязычная</td></tr>
+<tr><td>2. Программа тренировок</td><td>4 недели для мужчин / для женщин, 2 недели с 6 записанными тренировками, «смотри и повторяй»</td><td>700–900 ₽; «неплохо продавались», до ~30 000 ₽/мес</td></tr>
+<tr><td>3. Закрытый чат</td><td>догрев, материалы по питанию</td><td>конверсия дальше — ноль</td></tr>
+<tr><td>4. «Старт»</td><td>2 недели рационального питания, принцип тарелки; старт 21-го</td><td>новых заявок ноль; две старые и одна новая, и та не из резинки</td></tr>
+<tr><td>5. Проект / наставничество</td><td>питание + тренировочный план</td><td>приходят по сарафану, из воронки — нет</td></tr>
+</table>
+
+<div class="note" style="margin-top:28px;font-size:16px">
+<b>Где разрыв.</b> Человек купил тренировку за 700 ₽, чтобы заниматься дома. Его задача — «позаниматься». В чате ему предлагают питание, то есть другую задачу, о которой он не просил. Это не догрев, а смена темы. Поэтому ноль — не провал текстов в чате, а закономерность: на второй ступени стоит человек, который пришёл не за тем, что продаётся на четвёртой.<br><br>
+<b>Что проверить в первую очередь.</b> Кто купил программы за последние 3 месяца и что каждый из них хотел: похудеть, держать форму, вернуться после перерыва. Если среди них есть те, кто хочет похудеть, для них нужен мостик: «тренировка работает, но без тарелки вес стоит» — и один бесплатный разбор тарелки, а не приглашение в проект.
+</div>
+
+<div class="rows" style="max-width:900px;margin-top:30px">
+<div class="rw"><b>—</b><span><b>Воронка ручная.</b> «Всё руками делаю». При таком объёме это не беда: ручная воронка позволяет разговаривать с каждым, и это как раз то, чего сейчас не хватает (вопрос 05).</span></div>
+<div class="rw"><b>—</b><span><b>Продавец без желания продавать.</b> «Я без ярого желания это всё пропагандирую и показываю». Продукт за 700 ₽, который автору неинтересен, тянет вниз всю лестницу: чат наполняется людьми, с которыми автору не о чем говорить.</span></div>
+</div>
+<!--IGQ3-->
+</div></section>
+
+
+<!-- 04 -->
+<section id="q4" class="grey"><div class="wrap">
+<div class="lab">Вопрос 04 · «раньше хорошо работали консультации, потому что высокочековый продукт. Но сейчас все продают консультации»</div>
+<h2>Все продают консультации, <u>но не все были в них хороши</u></h2>
+<p class="lead">Дмитрий сам назвал два канала, которые работают: сарафан и консультации. Оба держатся на доверии к нему лично, а не на ленте. То, что консультации продают все, значит одно: консультацию «по питанию» больше нельзя продать как услугу. Её можно продать как результат конкретного человека.</p>
+
+<div class="rows" style="max-width:900px;margin-top:30px">
+<div class="rw"><b>1</b><span><b>Собрать доказательства.</b> Двое-трое клиентов наставничества — что было, что стало, их словами. Андрей сам проходил наставничество Дмитрия по питанию, так что это не абстракция.</span></div>
+<div class="rw"><b>2</b><span><b>Сделать консультацию единственной дверью.</b> Вместо лестницы 700 ₽ → чат → «Старт» → проект: контент → консультация → наставничество. Короче путь, меньше мест, где человек теряется.</span></div>
+<div class="rw"><b>3</b><span><b>Отдавать разбор бесплатно, но точечно.</b> Разбор одной тарелки в сторис с разрешения подписчика — это и контент, и демонстрация метода, и повод написать в директ.</span></div>
+</div>
+<!--IGQ4-->
+</div></section>
+
+
+<!-- 05 -->
+<section id="q5"><div class="wrap">
+<div class="lab">Вопрос 05 · «без обратной связи, не общался с ними. Понимаю это упущением»</div>
+<h2>Главное упражнение этой недели — <u>10 разговоров</u></h2>
+<p class="lead">Андрей ответил на это 15.09 одной фразой: «это надо обязательно делать, знаю, что напряг, но ты офигеешь от результата». На вопросы 01–04 нельзя ответить окончательно, пока не известно, кто покупает и почему. Ответ лежит у тех, кто уже заплатил, и у тех, кто дошёл до чата и ушёл.</p>
+
+<div class="brk" style="margin-top:34px">
+<div class="bk"><span class="c c1"></span><span class="c c2"></span><span class="c c3"></span><span class="c c4"></span>
+<div class="n">▢ кому писать</div><h3>5 + 5</h3>
+<p>Пять человек, которые купили наставничество или консультацию. Пять человек, которые купили программу за 700–900 ₽ или сидят в закрытом чате, но дальше не пошли. Лучше созвон на 15 минут, можно голосовыми.</p></div>
+
+<div class="bk"><span class="c c1"></span><span class="c c2"></span><span class="c c3"></span><span class="c c4"></span>
+<div class="n">▢ что спросить</div><h3>Пять вопросов</h3>
+<p>1. Что происходило в жизни, когда решил(а) что-то менять? 2. Что пробовал(а) до меня и почему бросил(а)? 3. Почему выбрал(а) меня, а не другого тренера? 4. Что изменилось после? 5. Как бы ты рассказал(а) обо мне подруге или другу? Непокупателям третий вопрос меняется на «что остановило».</p></div>
+
+<div class="bk"><span class="c c1"></span><span class="c c2"></span><span class="c c3"></span><span class="c c4"></span>
+<div class="n">▢ что это даст</div><h3>Слова для текстов</h3>
+<p>Ответы на пятый вопрос — это готовые формулировки для шапки, для роликов и для оффера консультации. Это и есть выход из серой массы (вопрос 01): не придумывать отличие, а услышать его от своих клиентов.</p></div>
+</div>
+</div></section>
+
+
+<!-- ПЛАН -->
+<section id="plan" class="dark"><div class="wrap">
+<div class="lab" style="color:#8cc4ff">План</div>
+<h2 style="color:#fff">Что делать по шагам</h2>
+<div class="plan">
+<div>
+<p class="sub" style="color:#8cc4ff">Эта неделя</p>
+<ul class="ck">
+<li><b>10 разговоров</b> по схеме из вопроса 05. Записывать дословно.</li>
+<li><b>Посмотреть статистику:</b> долю русскоязычных и топ городов. Одна цифра решает судьбу резинки.</li>
+<li><b>Выписать всех, кто купил программы за 3 месяца</b>, и отметить, кто из них хоть раз спрашивал про питание.</li>
+</ul>
+</div>
+<div>
+<p class="sub" style="color:#8cc4ff">Следующие две недели</p>
+<ul class="ck">
+<li><b>Переписать шапку</b> словами клиентов из разговоров.</li>
+<li><b>В каждом ролике с упражнением — одна фраза голосом</b>: для кого и зачем.</li>
+<li><b>Серия «тарелка»</b>: три разбора реальных тарелок с разрешения подписчиков, в конце — приглашение на консультацию.</li>
+</ul>
+</div>
+</div>
+</div></section>
+
+
+<footer><div class="wrap">
+<div class="lab">Приложение</div>
+<h3 style="font-size:26px;margin-bottom:18px">Откуда данные и чего нет</h3>
+<div class="rows" style="max-width:900px">
+<div class="rw"><b>—</b><span><b>Переписка с 15.09.2026</b>: два голосовых Дмитрия (15.09, 10:16 и 10:25 МСК) расшифрованы полностью, плюс текстовые ответы. Цифры 30 000 ₽, 700–900 ₽, «конверсия ноль», «две старые заявки и одна новая» — его слова.</span></div>
+<div class="rw"><b>—</b><span><b>Статистика аккаунта</b> (охваты, страны, сохранения) недоступна: это не мой аккаунт. Всё про Instagram на странице собрано с публичной части профиля.</span></div>
+<div class="rw"><b>—</b><span><b>Закрытый чат участников</b> не открывал: вход в него означал бы появиться среди клиентов Дмитрия без спроса.</span></div>
+<div class="rw"><b>—</b><span><b>Продажи программ и «Старта»</b>: цифр нет, кроме названных в голосовых.</span></div>
+</div>
+<p class="fin">Подготовлено к консультации 24.09.2026 · Андрей Андреев</p>
+</div></footer>
+</body></html>
